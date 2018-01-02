@@ -10,7 +10,7 @@ import os
 import time
 
 cfg = ConfigParser.ConfigParser()
-cfg.read("config.cfg")
+cfg.read("./config.cfg")
 remloc = cfg.get("Remote","location")
 files = []
 reboot = False
@@ -56,11 +56,11 @@ def downloadFile(filename, overwrite=False, reload = True):
 	print("Attempting download of " + filename)
 	if overwrite:
 		print("Overwriting is enabled")
-	if os.path.isfile(filename) and not overwrite:
+	if os.path.isfile("./" + filename) and not overwrite:
 		print("File exists. Try again with overwrite enabled.")
 		return False
 	else:
-		urllib.urlretrieve(remloc + "/" + filename, filename)
+		urllib.urlretrieve(remloc + "/" + filename, "./" +filename)
 		print(filename + " downloaded and saved.")
 		if filename[-3:] == ".py":
 			#We have a python file. Check if we have it loaded.
@@ -73,7 +73,7 @@ def getFileList():
 	#The file list doesn't have a version number. It's just a list of files that should be checked.
 	#And, more importantly, it sets the order to check them in.
 	downloadFile("filelist.txt", True)
-	f = open("filelist.txt", "r")
+	f = open("./filelist.txt", "r")
 	for line in f:
 		files.append(line.strip("\r\n"))
 	print("File list populated.")
