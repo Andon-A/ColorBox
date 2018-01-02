@@ -1,5 +1,5 @@
-#!/usr/bin/python
-v = "0.1.0"
+#! /usr/bin/python
+v = "0.1.1"
 
 print ("Andon's Colorbox Updater version %s") % v
 
@@ -8,6 +8,9 @@ import urllib2
 import ConfigParser
 import os
 import time
+import sys
+
+sys.path.append("/")
 
 cfg = ConfigParser.ConfigParser()
 cfg.read("./config.cfg")

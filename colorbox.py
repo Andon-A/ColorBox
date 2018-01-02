@@ -1,5 +1,5 @@
-#!/usr/bin/python
-v = "0.1.0"
+#! /usr/bin/python
+v = "0.1.1"
 
 print("Andon's ColorBox V%s, Beginning") % v
 
@@ -129,8 +129,8 @@ def runLoop(hour=0):
 		if (t.second % 15 == 0) and not down:
 			newcol = getColors()
 			down = True
-			print(newcol[ID])
-			print(colors[ID])
+			#print(newcol[ID])
+			#print(colors[ID])
 			if newcol[ID] != colors[ID]:
 				#AIO's color is out of date.
 				newcol[ID] = colors[ID]
@@ -164,7 +164,7 @@ def runLoop(hour=0):
 			disp = True
 		#Now display colors if they have changed.
 		if disp:
-			print("Updating Color Display")
+			#print("Updating Color Display")
 			dispAllColors(colors)
 		#Check to see if we need to kill the loop.
 		if t.hour == hour:
